@@ -5,6 +5,8 @@ export default function UploadPage() {
   const [audio, setAudio] = useState(null);
   const [previewImg, setPreviewImg] = useState(null);
   const [previewAudio, setPreviewAudio] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState('');
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -20,6 +22,8 @@ export default function UploadPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUploading(true);
+    setUploadStatus('Uploading...');
     const formData = new FormData();
     formData.append('image', image);
     formData.append('audio', audio);
@@ -29,9 +33,11 @@ export default function UploadPage() {
         body: formData,
       });
       if (!response.ok) throw new Error('Upload failed');
-      alert('Files uploaded!');
+      setUploadStatus('Upload successful!');
     } catch (err) {
-      alert('Error uploading files: ' + err.message);
+      setUploadStatus('Error: ' + err.message);
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -47,8 +53,9 @@ export default function UploadPage() {
         <input id="avatar-audio" type="file" accept="audio/*" onChange={handleAudioChange} />
         {previewAudio && <audio src={previewAudio} controls />}
         <br />
-        <button type="submit">Upload</button>
+        <button type="submit" disabled={uploading}>Upload</button>
       </form>
+      {uploadStatus && <p>{uploadStatus}</p>}
     </div>
   );
 }

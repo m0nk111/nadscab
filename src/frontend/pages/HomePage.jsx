@@ -1,8 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 export default function HomePage() {
   const mountRef = useRef(null);
+  const [status, setStatus] = useState('Idle');
+  const [backendStatus, setBackendStatus] = useState('Idle');
+  const wsRef = useRef(null);
 
   useEffect(() => {
     // Scene setup
@@ -35,20 +38,36 @@ export default function HomePage() {
     light.position.set(0, 2, 5);
     scene.add(light);
 
-    // Idle animation
+    // Idle animation met subtiele hoofdbeweging, knipperen en status
     let frame = 0;
+    let blinkTimer = 0;
     function animate() {
       frame += 0.03;
       head.rotation.y = Math.sin(frame) * 0.1;
       head.position.y = Math.sin(frame * 0.5) * 0.05;
-      leftEye.scale.y = rightEye.scale.y = 0.9 + 0.1 * Math.abs(Math.sin(frame * 2)); // blink
+      // Simuleer knipperen
+      blinkTimer += 0.03;
+      if (Math.sin(blinkTimer * 2) > 0.95) {
+        leftEye.scale.y = rightEye.scale.y = 0.3;
+        setStatus('Blinking');
+      } else {
+        leftEye.scale.y = rightEye.scale.y = 0.9 + 0.1 * Math.abs(Math.sin(frame * 2));
+        setStatus('Idle');
+      }
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
     animate();
 
+    // WebSocket verbinding voor live status updates
+    wsRef.current = new WebSocket('ws://localhost:8000/ws');
+    wsRef.current.onmessage = (event) => {
+      setBackendStatus(event.data);
+    };
+
     return () => {
       mountRef.current.removeChild(renderer.domElement);
+      if (wsRef.current) wsRef.current.close();
     };
   }, []);
 
@@ -56,6 +75,8 @@ export default function HomePage() {
     <div>
       <h1>AI Avatar Webapp</h1>
       <div ref={mountRef} />
+      <p>Status (frontend animatie): <strong>{status}</strong></p>
+      <p>Status (backend): <strong>{backendStatus}</strong></p>
       <p>The avatar is waiting for your question...</p>
     </div>
   );
