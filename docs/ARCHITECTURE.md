@@ -3,7 +3,13 @@
 ## Goal
 Create a web application where users can train an avatar (face and voice) and interact with it in real time. The avatar should move (idle animation) and speak with a cloned voice.
 
-## Components
+
+## Netwerk & Security
+- Frontend via HTTPS (poort 443) op IP 192.168.1.27
+- Backend op poort 7000
+- Nginx proxy't API en WebSocket
+- Demo-links altijd zichtbaar op de frontpage
+- IP-conventie: nadscab gebruikt 192.168.1.27, tars-ai-project gebruikt 192.168.1.26
 
 ### 1. Frontend (Web)
 - **React**: UI framework

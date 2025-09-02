@@ -3,11 +3,16 @@
 
 This roadmap outlines the main features, improvements, and priorities for the nadscab project.
 
+
 ## Short Term (Current Focus)
 - Polish and update documentation (README, technical docs)
 - Set up CI/CD with GitHub Actions (linting, testing)
 - Improve code quality (linting, formatting, unit tests)
 - Review security and compliance (permissions, sensitive data)
+- HTTPS verplicht voor frontend/backend (IP 192.168.1.27)
+- Backend draait op poort 7000, frontend via poort 443
+- Demo-links altijd zichtbaar op de frontpage
+- Automatisering en projectregels in .github/copilot-instructions.md
 
 ## Medium Term
 - AI integration for avatars (voice, facial animation)

@@ -11,7 +11,16 @@ All files, models, or assets stored outside the project directory but used for t
 All third-party or external software, libraries, or models used from other projects must be stored outside this project directory (e.g., in `../`). Only project-specific code and assets should reside within the main project folder.
 ## Avatar Idle Animation
 Avatars (e.g. Trump) should have an idle status: when no question is asked, the avatar performs a continuous looped animation (e.g. blinking, head movement, subtle facial expressions). This is implemented using a 3D model with idle animation clips (created in Blender or similar), and played in the frontend (Three.js) until user interaction occurs.
+
 # Project Structure: AI Avatar Webapp
+
+## Netwerk & Security
+- Frontend wordt geserveerd via HTTPS (poort 443) op IP 192.168.1.27
+- Backend draait op poort 7000 (FastAPI)
+- Nginx proxy't API-verkeer en WebSocket naar backend
+- Demo-links altijd zichtbaar op de frontpage
+- Automatisering en projectregels in .github/copilot-instructions.md
+- IP-conventie: nadscab gebruikt 192.168.1.27, tars-ai-project gebruikt 192.168.1.26
 
 ## Top-level
 - README.md

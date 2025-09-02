@@ -23,10 +23,13 @@ This document summarizes key technical choices and best practices for the nadsca
 - Log errors and important events
 - Write unit tests for API endpoints
 
+
 ## Security
 - Never commit sensitive data (API keys, passwords)
 - Review file and directory permissions
-- Use HTTPS in production
+- Gebruik altijd HTTPS in productie (zie nginx-config, IP 192.168.1.27)
+- Backend draait op poort 7000, frontend via HTTPS/poort 443
+- IP-conventie: nadscab gebruikt 192.168.1.27, tars-ai-project gebruikt 192.168.1.26
 
 ## CI/CD
 - Use GitHub Actions for automated testing and linting
