@@ -18,13 +18,11 @@ Avatars (e.g. Trump) should have an idle status: when no question is asked, the 
 - PLAN.md
 - TECH-ADVICE.md
 - PROJECT-STRUCTURE.md
-- app/
+- docker/nadscab-nginx.conf (nginx config)
+- src/frontend/dist/ (Vite build: productie frontend)
 
 ## app/
-- index.html (main UI)
-- assets/ (images, audio, video, avatars)
-- js/ (frontend scripts)
-- css/ (styles)
+- (legacy, niet meer gebruikt voor frontend)
 
 ## src/
 - backend/
@@ -32,10 +30,11 @@ Avatars (e.g. Trump) should have an idle status: when no question is asked, the 
   - api/ (API endpoints)
   - models/ (AI models, persona configs)
 - frontend/
-  - components/ (React/Vue components)
+  - components/ (React components)
   - pages/ (UI pages)
   - services/ (API calls, mic/webcam integration)
   - styles/ (CSS/SCSS)
+  - dist/ (Vite build output, wordt door nginx geserveerd)
 
 ## integration/
 - tars-connector/ (API client for tars-ai-project)

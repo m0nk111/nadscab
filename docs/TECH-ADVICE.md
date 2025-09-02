@@ -1,23 +1,41 @@
-# Technology Advice: AI Avatar Webapp
 
-## Frontend
-- React or Vue for modern UI
-- WebRTC/MediaDevices API for mic/webcam
-- Three.js or TensorFlow.js for facial animation/avatar
+# Technical Advice & Best Practices
 
-## Backend
-- FastAPI or Node.js (Express) for API and integration
-- Python: voice cloning (e.g. Tortoise TTS, ElevenLabs, Bark)
-- AI facial animation: DeepFaceLive, Avatarify, D-ID API
+This document summarizes key technical choices and best practices for the nadscab project.
 
-## Integration
-- REST API for connection with tars-ai-project
-- WebSocket for live conversation
+## General Principles
+- Keep all documentation and code in English
+- Use clear, descriptive commit messages
+- Prefer open standards and widely used libraries
+- Avoid unnecessary complexity
 
-## Demo
-- Basic: React app with avatar, mic/webcam, dummy backend
-- Expandable with real AI voice/face modules
+## Frontend (React/Vite)
+- Use functional components and hooks
+- Organize code by feature (e.g., pages, components)
+- Use ESLint and Prettier for code quality
+- Write unit tests for critical components
+- Optimize assets for performance
 
-## Deployment
-- Docker for easy deployment
-- Nginx for reverse proxy
+## Backend (FastAPI)
+- Structure endpoints clearly and document with OpenAPI
+- Validate all input data
+- Use environment variables for secrets/config
+- Log errors and important events
+- Write unit tests for API endpoints
+
+## Security
+- Never commit sensitive data (API keys, passwords)
+- Review file and directory permissions
+- Use HTTPS in production
+
+## CI/CD
+- Use GitHub Actions for automated testing and linting
+- Keep workflows simple and fast
+
+## Collaboration
+- Document all major decisions in the docs folder
+- Encourage code reviews and feedback
+
+## Notes
+- Docker support is postponed
+- Feedback and improvements are welcome!

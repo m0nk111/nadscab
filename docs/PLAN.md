@@ -1,16 +1,29 @@
 
-# Plan of Approach: AI Avatar Webapp
+# Project Roadmap
 
-1. Set up project structure (frontend, backend, integration)
-2. Persona/avatar selection (list, UI)
-3. Integrate voice cloning (AI/external)
-4. Facial animation/avatar (AI/external)
-5. Open mic and webcam integration (WebRTC/JS API)
-6. Conversation backend (optional: connect to tars-ai-project)
-7. Build demo: basic UI, avatar, speech, mic/webcam
-8. Documentation and API integration
-9. Testing and fine-tuning
+This roadmap outlines the main features, improvements, and priorities for the nadscab project.
 
-## Standalone & Integration
-- Webapp works independently
-- API endpoints for integration with tars-ai-project
+## Short Term (Current Focus)
+- Polish and update documentation (README, technical docs)
+- Set up CI/CD with GitHub Actions (linting, testing)
+- Improve code quality (linting, formatting, unit tests)
+- Review security and compliance (permissions, sensitive data)
+
+## Medium Term
+- AI integration for avatars (voice, facial animation)
+- Enhanced upload functionality (file types, progress, error handling)
+- Persona management (create, edit, select avatars)
+- Logging and monitoring (backend and frontend)
+- Expand API integration (connect to tars-ai-project and other services)
+
+## Long Term
+- Advanced AI features (emotion, context awareness)
+- User authentication and roles
+- Internationalization (multi-language support)
+- Performance optimization (frontend and backend)
+- Automated deployment (optional, no Docker for now)
+
+## Notes
+- All documentation and code remain in English.
+- Docker support is postponed for now.
+- Feedback and contributions are welcome!
