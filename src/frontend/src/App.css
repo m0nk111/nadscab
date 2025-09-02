@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.waiting-trump {
+  animation: trump-wait 1.2s infinite ease-in-out;
+  will-change: transform;
+}
+
+@keyframes trump-wait {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-20px); }
+  50%  { transform: translateX(20px); }
+  80%  { transform: translateX(-20px); }
+  100% { transform: translateX(0); }
+}

@@ -1,3 +1,4 @@
+
 # Update Rule
 Any user wishes or changes must be immediately updated in both the chatmode file and the instructions file.
 # Best Option Rule
@@ -24,6 +25,14 @@ De agent gaat altijd door met de beste optie die hij aanbeveelt, zonder te wacht
 - Gratis, open-source tools en libraries mogen direct gebruikt worden zonder toestemming.
 - Chatmode-bestand (`.github/chatmodes/monks.chatmode.md`) regelt volledige automatisering en tooltoegang.
 - Demo-links zijn altijd zichtbaar op de frontpage van de webapp.
+
+
+#### Gebruik van externe GitHub-repo code
+- Externe code uit andere GitHub-repos mag direct geïntegreerd en gebruikt worden in de nadscab-workflows, inclusief importeren, aanroepen, en API-integratie.
+- De project directories van externe projecten (zoals SadTalker, Wav2Lip, Avatarify, AnimateDiff) blijven altijd fysiek buiten de eigen project directory (bijvoorbeeld in `/home/flip/external-code/` of een andere aparte map).
+- Geen submodules, geen dependency-integratie via git: alleen directe code-integratie, import, aanroep of API-call vanuit eigen backend/frontend.
+- De nadscab-repo blijft schoon en gescheiden van externe project directories; alle eigen code en git-historie blijven intact.
+- Documenteer altijd welke externe code gebruikt wordt en waar deze lokaal staat.
 
 Backend draait altijd op een poort tussen 7000 en 7999 (standaard: 7999), tenzij een externe projectafspraak een andere poort vereist.
 - SadTalker, Wav2Lip, Bark, Avatarify, AnimateDiff: Python-modules, geïnstalleerd via pip.

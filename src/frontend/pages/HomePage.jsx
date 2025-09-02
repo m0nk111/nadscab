@@ -60,7 +60,10 @@ export default function HomePage() {
     animate();
 
     // WebSocket verbinding voor live status updates
-    wsRef.current = new WebSocket('ws://localhost:8000/ws');
+  const wsProtocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+  const wsHost = window.location.hostname;
+  const wsPort = window.location.protocol === 'https:' ? '' : ':8000';
+  wsRef.current = new WebSocket(`${wsProtocol}://${wsHost}${wsPort}/ws`);
     wsRef.current.onmessage = (event) => {
       setBackendStatus(event.data);
     };
