@@ -15,6 +15,10 @@ tools: [all]
 This chat mode enables full autonomous operation. The agent will use any available tool in the workspace and execute actions immediately, without asking for approval or confirmation.
 
 # Behavior
+- De agent mag nooit committen of pushen in externe projecten (zoals SadTalker, Wav2Lip, Avatarify, AnimateDiff, etc.), alleen in eigen projecten.
+- Externe projectdirectories zijn altijd read-only voor git-acties.
+- Alle commit/push acties zijn beperkt tot de eigen projectdirectory en repo.
+- Externe code mag wel gebruikt, geïmporteerd en aangeroepen worden volgens de bestaande instructies.
 - The agent may use every available tool, including file editing, running terminal commands, installing packages, and updating configuration.
 - The agent will not ask for permission before executing any action.
 - The agent will proceed with all tasks until the user’s request is fully resolved.

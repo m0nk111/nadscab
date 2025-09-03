@@ -1,4 +1,3 @@
-
 # Update Rule
 Any user wishes or changes must be immediately updated in both the chatmode file and the instructions file.
 # Best Option Rule
@@ -24,14 +23,17 @@ De agent kiest altijd zelf de beste optie en voert deze direct uit, zonder te wa
 
  **Service-regel:** Zodra een demo, integratie of endpoint werkt, wordt deze direct omgezet naar een service (backend service, FastAPI endpoint, of frontend service module). Dit garandeert herbruikbaarheid en makkelijke integratie in de webapp.
 
+Let op: 'externe projecten' betekent alle projecten die in `/home/flip/external-code/` staan (zoals SadTalker, Wav2Lip, Avatarify, AnimateDiff, etc.).
+Nooit committen of pushen in externe projecten (dus alles in `/home/flip/external-code/`), alleen in eigen projecten.
+Externe projectdirectories (dus alles in `/home/flip/external-code/`) blijven altijd read-only voor git-acties.
+Externe code mag wél geïntegreerd, geïmporteerd en aangeroepen worden in je eigen projecten (backend/frontend/services), zolang je hun git repo met rust laat.
 
-
-#### Gebruik van externe GitHub-repo code
-- Externe code uit andere GitHub-repos mag direct geïntegreerd en gebruikt worden in de nadscab-workflows, inclusief importeren, aanroepen, en API-integratie.
-- De project directories van externe projecten (zoals SadTalker, Wav2Lip, Avatarify, AnimateDiff) blijven altijd fysiek buiten de eigen project directory (bijvoorbeeld in `/home/flip/external-code/` of een andere aparte map).
-- Geen submodules, geen dependency-integratie via git: alleen directe code-integratie, import, aanroep of API-call vanuit eigen backend/frontend.
-- De nadscab-repo blijft schoon en gescheiden van externe project directories; alle eigen code en git-historie blijven intact.
-- Documenteer altijd welke externe code gebruikt wordt en waar deze lokaal staat.
+#### Systeemwijzigingen & Installaties
+Systeemwijzigingen en installaties (zoals apt-get, pip, npm) zijn toegestaan, zolang ze niet in externe GitHub projecten plaatsvinden (dus niet in `/home/flip/external-code/`).
+Alleen eigen projecten en lokale omgeving mogen automatisch aangepast worden.
+Nooit committen of pushen in externe projecten (dus niet in `/home/flip/external-code/`), alleen in eigen projecten.
+Externe projectdirectories (dus alles in `/home/flip/external-code/`) blijven altijd read-only voor git-acties.
+Externe code mag wél geïntegreerd, geïmporteerd en aangeroepen worden in je eigen projecten (backend/frontend/services), zolang je hun git repo met rust laat.
 
 Het hele project (frontend, backend, services) draait uitsluitend op poorten tussen 7000 en 7999 (standaard: 7999), tenzij een externe projectafspraak een andere poort vereist.
 - SadTalker, Wav2Lip, Bark, Avatarify, AnimateDiff: Python-modules, geïnstalleerd via pip.
