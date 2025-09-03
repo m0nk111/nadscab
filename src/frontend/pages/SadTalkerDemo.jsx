@@ -7,11 +7,24 @@ export default function SadTalkerDemo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Dummy fetch
-    setTimeout(() => {
-      setVideoUrl('https://www.w3schools.com/html/mov_bbb.mp4');
-      setLoading(false);
-    }, 1500);
+    const formData = new FormData();
+    const imageFile = e.target.image.files[0];
+    const audioFile = e.target.audio.files[0];
+    formData.append('image', imageFile);
+    formData.append('audio', audioFile);
+    try {
+      const response = await fetch('/api/sadtalker', {
+        method: 'POST',
+        body: formData
+      });
+      if (!response.ok) throw new Error('Backend error');
+      const blob = await response.blob();
+      setVideoUrl(URL.createObjectURL(blob));
+    } catch (err) {
+      alert('Er ging iets mis met SadTalker: ' + err.message);
+      setVideoUrl(null);
+    }
+    setLoading(false);
   };
 
   return (

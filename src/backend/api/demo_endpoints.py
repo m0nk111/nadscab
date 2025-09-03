@@ -7,17 +7,22 @@ router = APIRouter()
 
 @router.post("/api/sadtalker")
 def sadtalker_demo(image: UploadFile = File(...), audio: UploadFile = File(...)):
-    # Hier zou je SadTalker aanroepen
-    # Demo: sla files op en retourneer een dummy video
+    # SadTalker integratie: sla files op en roep SadTalker aan via subprocess
     image_path = f"/tmp/{image.filename}"
     audio_path = f"/tmp/{audio.filename}"
     with open(image_path, "wb") as f:
         f.write(image.file.read())
     with open(audio_path, "wb") as f:
         f.write(audio.file.read())
-    # TODO: SadTalker integratie
-    demo_video = "demo_sadtalker.mp4"
-    return FileResponse(demo_video)
+    # Pad naar SadTalker repo en output
+    sadtalker_repo = "/home/flip/external-code/SadTalker"
+    result_dir = "/tmp"
+    video_path = f"{result_dir}/sadtalker_result.mp4"
+    # SadTalker CLI-call
+    sad_talker_cmd = f"python3 {sadtalker_repo}/inference.py --driven_audio {audio_path} --source_image {image_path} --result_dir {result_dir} --still --preprocess full --enhancer gfpgan"
+    os.system(sad_talker_cmd)
+    # Geef het gegenereerde video terug
+    return FileResponse(video_path)
 
 @router.post("/api/wav2lip")
 def wav2lip_demo(image: UploadFile = File(...), audio: UploadFile = File(...)):
