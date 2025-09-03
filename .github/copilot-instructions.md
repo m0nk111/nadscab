@@ -21,10 +21,9 @@ De agent gaat altijd door met de beste optie die hij aanbeveelt, zonder te wacht
 - **Frontend deployment:** output staat in `src/frontend/dist`.
 
 ### Project Conventions
-- Alle code en documentatie is in het Engels, communicatie in de chat is altijd in het Nederlands.
-- Gratis, open-source tools en libraries mogen direct gebruikt worden zonder toestemming.
-- Chatmode-bestand (`.github/chatmodes/monks.chatmode.md`) regelt volledige automatisering en tooltoegang.
-- Demo-links zijn altijd zichtbaar op de frontpage van de webapp.
+
+ **Service-regel:** Zodra een demo, integratie of endpoint werkt, wordt deze direct omgezet naar een service (backend service, FastAPI endpoint, of frontend service module). Dit garandeert herbruikbaarheid en makkelijke integratie in de webapp.
+
 
 
 #### Gebruik van externe GitHub-repo code
@@ -34,7 +33,7 @@ De agent gaat altijd door met de beste optie die hij aanbeveelt, zonder te wacht
 - De nadscab-repo blijft schoon en gescheiden van externe project directories; alle eigen code en git-historie blijven intact.
 - Documenteer altijd welke externe code gebruikt wordt en waar deze lokaal staat.
 
-Backend draait altijd op een poort tussen 7000 en 7999 (standaard: 7999), tenzij een externe projectafspraak een andere poort vereist.
+Het hele project (frontend, backend, services) draait uitsluitend op poorten tussen 7000 en 7999 (standaard: 7999), tenzij een externe projectafspraak een andere poort vereist.
 - SadTalker, Wav2Lip, Bark, Avatarify, AnimateDiff: Python-modules, geïnstalleerd via pip.
 - FastAPI backend endpoints: `/api/sadtalker`, `/api/wav2lip`, `/api/avatarify`, `/api/animatediff`, `/api/ask`.
 - Nginx config: `docker/nadscab-nginx.conf` (SPA routing, caching uitgeschakeld).

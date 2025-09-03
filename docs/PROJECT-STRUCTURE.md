@@ -15,8 +15,7 @@ Avatars (e.g. Trump) should have an idle status: when no question is asked, the 
 # Project Structure: AI Avatar Webapp
 
 ## Netwerk & Security
-- Frontend wordt geserveerd via HTTPS (poort 443) op IP 192.168.1.27
-- Backend draait op poort 7000 (FastAPI)
+- Het hele project (frontend, backend, services) draait uitsluitend op poorten tussen 7000 en 7999 (standaard: 7999) op IP 192.168.1.27
 - Nginx proxy't API-verkeer en WebSocket naar backend
 - Demo-links altijd zichtbaar op de frontpage
 - Automatisering en projectregels in .github/copilot-instructions.md
@@ -60,3 +59,6 @@ This structure supports standalone operation and easy integration with tars-ai-p
 
 ## Licensing and Cost Requirement
 All code, dependencies, and services used in this project must be free and open-source. No paid or proprietary technologies are allowed; the project must remain free to use and distribute.
+
+## Service-regel
+Zodra een demo, integratie of endpoint werkt, wordt deze direct omgezet naar een service (backend service, FastAPI endpoint, of frontend service module). Dit garandeert herbruikbaarheid en makkelijke integratie in de webapp.
