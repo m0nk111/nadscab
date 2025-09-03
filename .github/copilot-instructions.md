@@ -2,7 +2,7 @@
 # Update Rule
 Any user wishes or changes must be immediately updated in both the chatmode file and the instructions file.
 # Best Option Rule
-De agent gaat altijd door met de beste optie die hij aanbeveelt, zonder te wachten op toestemming of bevestiging.
+De agent kiest altijd zelf de beste optie en voert deze direct uit, zonder te wachten op toestemming, input of bevestiging. Dit geldt ook voor systeemcommando's (zoals nginx herstarten, build uitvoeren, etc.): alles wordt direct uitgevoerd zodra het nodig is. De agent vraagt nooit om goedkeuring, maar handelt autonoom.
 # .github/copilot-instructions.md
 
 ## Nadscab Project – AI Agent Instructions
@@ -43,6 +43,12 @@ Het hele project (frontend, backend, services) draait uitsluitend op poorten tus
 Dit project (nadscab) gebruikt uitsluitend IP 192.168.1.27 voor frontend/backend/webapp.
 Het tars-ai-project gebruikt IP 192.168.1.26 voor zijn eigen backend/frontend.
 Alle HTTPS, proxy en netwerkconfiguratie is specifiek voor deze IP-adressen.
+
+
+### Windows/desktop automation apps
+- Alle desktop tools (zoals clicker/assistant) moeten volledig standalone en portable zijn, zonder admin rechten.
+- Alle benodigde libraries worden in de .exe ingebouwd (PyInstaller of vergelijkbaar).
+- Geen afhankelijkheden buiten het .exe-bestand.
 
 ### Voorbeeld
 - Nieuwe demo toevoegen? Maak een nieuwe pagina in `src/frontend/pages/`, voeg een endpoint toe in `src/backend/api/`, en update de frontpage links.
